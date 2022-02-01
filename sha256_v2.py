@@ -1,4 +1,6 @@
 '''
+This v2 file is for purposes of cross-checking and uses the check_my_calcs.py file. It also converts data involved such as Hash Values into a printable format.
+Barely any other differences exist between the two files.
 =====================SHA-256==================
 In general maximum data length is 2^64 bits. (2^64/8 bytes = 2^61 ASCII characters)
 This code limits data input 55 ASCII characters.
@@ -21,19 +23,20 @@ def main():
 	primes_base = hf.findPrimes(64)
 	printable_hv, hash_values = hf.findHashValues(primes_base)
 	printable_rc, round_constants = hf.findRoundConstants(primes_base)
-	#print("Cross-checking Hash Values... ? ", cmc.checkHashValues(printable_hv))
-	#print("Cross-checking Round Constants... ? ", cmc.checkRoundConstants(printable_rc))
+	print("Cross-checking Hash Values... ? ", cmc.checkHashValues(printable_hv))
+	print("Cross-checking Round Constants... ? ", cmc.checkRoundConstants(printable_rc))
+	
 	print("\nINITIAL HASH VALUES:-\n", printable_hv)
-	#print("\nACTUAL INITIAL HASH VALUES:-\n", hash_values)
+	print("\nACTUAL INITIAL HASH VALUES:-\n", hash_values)
 	print("\nROUND CONSTANTS:-\n", printable_rc)
-	#print("\nACTUAL ROUND CONSTANTS:-\n", round_constants)
+	print("\nACTUAL ROUND CONSTANTS:-\n", round_constants)
 
 	# SETTING UP PROCESSING FUNCTIONS AND MESSAGE SCHEDULE
-	#print("Cross-checking Processing Functions... ?\n", cmc.checkProcessingFuncs())
+	print("Cross-checking Processing Functions... ?\n", cmc.checkProcessingFuncs())
 	words = hf.initMessageSchedule(padded_data)
 	printable_words, words = pf.findWords(words)
 	print("\nMESSAGE SCHEDULE:-\n", printable_words)
-	#print("\nACTUAL MESSAGE SCHEDULE:-\n", words)
+	print("\nACTUAL MESSAGE SCHEDULE:-\n", words)
 
 	# HASH COMPRESSION
 	hex_digest = pf.hashCompression(words, round_constants, hash_values)
