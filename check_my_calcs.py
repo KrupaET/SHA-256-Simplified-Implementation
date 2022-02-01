@@ -2,7 +2,7 @@ import processor_funcs as pf
 import numpy as np
 import hashlib
 
-# Checks generated constants and hash digest with predetermined ones.
+# Cross-checks generated constants and hash digest with predetermined ones.
 def checkHashValues(my_hv):
 	squares = "0x6a09e667 0xbb67ae85 0x3c6ef372 0xa54ff53a 0x510e527f 0x9b05688c 0x1f83d9ab 0x5be0cd19"
 	correct = np.array(squares.split(" "))
@@ -23,7 +23,7 @@ def checkSHA256(data, my_hd):
 	else:
 		return False
 
-# Predefined lambda functions
+# Predefined lambda functions (from the Documentation)
 ROR = lambda x, y: (((x & 0xffffffff) >> (y & 31)) | (x << (32 - (y & 31)))) & 0xffffffff
 Ch = lambda x, y, z: (z ^ (x & (y ^ z)))
 Maj = lambda x, y, z: (((x | y) & z) | (x & y))
@@ -35,7 +35,7 @@ Gamma0 = lambda x: (S(x, 7) ^ S(x, 18) ^ R(x, 3))
 Gamma1 = lambda x: (S(x, 17) ^ S(x, 19) ^ R(x, 10))
 
 def checkProcessingFuncs():
-	print("THEIRS\tMINE")
+	#print("DOCS\tMINE")
 	print(R(5,2), pf.SHR(5,2))
 	print(ROR(5,2), pf.ROR(5,2))
 	print(Ch(15,6,2), pf.Ch(15,6,2))
