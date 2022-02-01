@@ -1,10 +1,11 @@
 import numpy as np
 
 # x, y, z, n are 32-bit words
-# 2 parallel non-linear functions Ch and Maj for OWF nature
+# 2 parallel non-linear functions Ch and Maj for One-Way-Functionality
 # Gamma0 and Gamma1 promote collision resistance
 # 2 diffusion primitives Sigma1 and Sigma0 that increase scrambling
 # Heavy feedback on working variables in the diffusion loop
+
 WORDSIZE = 32
 SHR = lambda x, n: x >> n
 SHL = lambda x, n: x << n
