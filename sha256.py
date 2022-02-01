@@ -1,7 +1,7 @@
 '''
 =====================SHA-256==================
-In general maximum data length is 2^64 bits. (2^64/8 bytes = 2^61 ASCII characters)
-This code limits data input 55 ASCII characters.
+In general, maximum data length is 2^64 bits. (2^64/8 bytes = 2^61 ASCII characters)
+This code limits data input to 55 ASCII characters.
 '''
 
 import helper_funcs as hf
